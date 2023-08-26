@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crud Employe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  </head>
+    <!--formulaire-->
+  <body onload="chargment()">
+    <h1 style="color: aqua; text-align: center;" class="text-primary">Employé</h1>
+    <form  class="mx-auto" style="width: 600px;" >
+        <div class="mb-3">
+          <label for="nom" class="form-label">FirstName: </label>
+          <input type="email" class="form-control" id="nom" aria-describedby="emailHelp"
+          placeholder=" FirstName...">
+          <div class="invalid-feedback">
+            FirstName est invalid
+          </div>
+        </div>
+        <div class="mb-3">
+            <label for="LastName" class="form-label">LastName: </label>
+            <input type="text" class="form-control" id="LastName" aria-describedby="emailHelp"
+            placeholder=" LastName...">
+            <div class="invalid-feedback">
+              LastName est invalid
+            </div>
+          </div>
+        
+        <div class="mb-3">
+          <label for="email" class="form-label">E_mail:</label>
+          <input type="email" class="form-control" id="email"
+          placeholder=" E_mail...">
+          <div class="invalid-feedback">
+          E_mail est invalid
+          </div>
+        </div>
+        <div class="mb-3">
+            <label for="adresse" class="form-label">addresse:</label>
+            <input type="text" class="form-control" id="adresse"
+            placeholder=" addresse.....">
+            <div class="invalid-feedback">
+             adresse est invalid
+            </div>
+          </div>
+
+        <div class="d-grid gap-2">
+            <button class="btn btn-success" type="button" onclick="donner()" >Ajouter</button>
+          </div><br><br>
+       
+      </form>
+          <!--Le tableau-->
+    <table class="table table-responsive container-fluid mb-5" >
+        <thead style="background-color:brown; color: white;">
+        <tr class="text-center">
+          <td>#</td>
+          <td>FirstName</td>
+          <td>LastName</td>
+          <td>E_mail</td>
+          <td>Adresse</td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        </thead>
+        <tbody id="tab1" class="text-center">
+        </tbody>
+    </table>
+    <!--update formulaire-->
+    <div class="modal fade" id="UpdateProduit" tabindex="-1" aria-labelledby="Updateproduit" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5">Modifier info employe</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form  >
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="updateFirstname" placeholder="FirstName  ... ">
+                    <label for="updateFirstname" class="form-label">FirstName :</label>
+                      <div  class="invalid-feedback ">
+                        Please enter FirstName.
+                      </div>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="updateLastname" placeholder="LastName ... ">
+                    <label for="updateLastname" class="form-label">LastName :</label>
+                      <div  class="invalid-feedback ">
+                        Please enter LastName.
+                      </div>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="updatenemail" placeholder="E_mail..." >
+                    <label for="updatenemail" class="form-label">E_mail :</label>
+                    <div class="invalid-feedback">
+                      Please enter E_mail.
+                    </div>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="updateadresse" placeholder="Adresse ... ">
+                    <label for="updateadresse" class="form-label">adresse :</label>
+                    <div  class="invalid-feedback ">
+                      Please enter adresse. 
+                    </div>
+                  </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+              <button type="button" class="btn btn-success" onclick="updatedonner()">Sauvegarder</button>
+            </div>
+          </div>  
+        </div>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="employe.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" > </script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $(function () {
+          $("#UpdateProduit").on("shown.bs.modal", function (e) {
+            var my_cs_value = $(e.relatedTarget).data('id');
+            update(my_cs_value);
+          });
+        });</script>
+  </body>
+</html>
+
